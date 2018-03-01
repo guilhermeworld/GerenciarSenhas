@@ -1,0 +1,42 @@
+﻿@model GerenciarSenhas.Models.Usuario
+
+@{
+	ViewBag.Title = "Login";
+}
+
+<div class="container">
+	<div class="row">
+		<h3 class="center-align blue-grey-text"> Faça seu login</h3>
+		<p>
+		<section id="loginForm">
+			<form action="/Conta/Login" method="post" class="col s12 center-align ">
+				<div class="center-align red-text">@Html.ValidationSummary(true, "")</div>
+				<div class="col s12 center-align">
+					<div class="row">
+						<div class="input-field inline">
+							@Html.TextBoxFor(model => model.Login)
+							@Html.LabelFor(model => model.Login)
+							<p class="red-text center-align tam">@Html.ValidationMessageFor(model => model.Login, "")</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field inline">
+							@Html.PasswordFor(model => model.Senha)
+							@Html.LabelFor(model => model.Senha)
+							<p class="red-text center-align tam">@Html.ValidationMessageFor(model => model.Senha, "")</p>
+</div>
+					</div>
+					<div class="row">
+						<button type="submit" class="waves-effect waves-light green accent-4 btn">Entrar</button>
+						<p></p>
+						@Html.ActionLink("Não possui cadastro?", "Cadastro", "Conta", new {@class = "center-align" })
+					</div>
+				</div>
+			</form>
+		</section>
+	</div>
+</div>
+
+@section Scripts{
+	@Scripts.Render("~/bundles/jqueryval")
+}

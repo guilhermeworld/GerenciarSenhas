@@ -1,0 +1,29 @@
+﻿@model GerenciarSenhas.Models.Usuario
+
+<h3 class="center-align blue-grey-text"> Faça seu cadastro</h3>
+<p></p>
+<form action="/Conta/Cadastro" method="post" class="col s12 center-align ">
+	<div class="center-align red-text">@Html.ValidationSummary(true, "")</div>
+	<div class="col s12 center-align">
+		<div class="row">
+			<div class="input-field inline">
+				@Html.TextBoxFor(model => model.Login)
+				@Html.LabelFor(model => model.Login)
+				<p class="red-text center-align tam">@Html.ValidationMessageFor(model => model.Login, "")</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field inline">
+				@Html.PasswordFor(model => model.Senha)
+				@Html.LabelFor(model => model.Senha)
+				<p class="red-text center-align tam">@Html.ValidationMessageFor(model => model.Senha, "")</p>
+			</div>
+		</div>
+		<div class="row">
+			<button type="submit" class="waves-effect waves-light blue accent-4 btn">Realizar Cadastro</button>
+			<p></p>
+			@Html.ActionLink("Voltar", "Login", "Conta")
+		</div>
+	</div>
+</form>
+

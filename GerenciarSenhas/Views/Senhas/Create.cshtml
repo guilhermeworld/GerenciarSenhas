@@ -1,0 +1,42 @@
+﻿@model GerenciarSenhas.Models.Senha
+
+
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+<div class="col s12 center-align">
+	@Html.ValidationSummary(true, "")
+	<div class="row">
+		<div class="input-field inline">
+			@Html.LabelFor(model => model.LocalS)
+			@Html.TextBoxFor(model => model.LocalS, new { @placeholder = "Ex: Redes sociais..." })
+			@Html.ValidationMessageFor(model => model.LocalS, "")
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="input-field inline ">
+			@Html.LabelFor(model => model.LoginS)
+			@Html.TextBoxFor(model => model.LoginS)
+			@Html.ValidationMessageFor(model => model.LoginS, "")
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="input-field inline">
+			@Html.LabelFor(model => model.Senha1)
+			@Html.TextBoxFor(model => model.Senha1)
+			@Html.ValidationMessageFor(model => model.Senha1, "")
+		</div>
+	</div>
+	<div class="row">
+		<button type="submit" class="waves-effect waves-light blue accent-4 btn">Confirmar nova senha</button>
+		<p></p>
+		@Html.ActionLink("Voltar", "Index")
+	</div>
+	
+</div>
+}
+

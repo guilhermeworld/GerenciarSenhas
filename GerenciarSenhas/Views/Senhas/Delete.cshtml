@@ -1,0 +1,40 @@
+﻿@model GerenciarSenhas.Models.Senha
+
+<div>
+	<h4 class="red-text center-align">Deseja realmente deletar os seguintes dados?</h4>
+	<table class="responsive-table bordered centered">
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.LocalS)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.LoginS)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Senha1)
+			</th>
+		</tr>
+		<tr>
+			<td>
+				@Html.DisplayFor(model => model.LocalS)
+			</td>
+			<td>
+				@Html.DisplayFor(model => model.LoginS)
+			</td>
+			<td>
+				@Html.DisplayFor(model => model.Senha1)
+			</td>
+		</tr>
+	</table>
+		<p></p>
+		@using (Html.BeginForm())
+		{
+		@Html.AntiForgeryToken()
+		<div class="center-align">
+			<input type="submit" value="Confirmar" class="waves-effect waves-light red accent-4 btn" />
+			<p></p>
+			@Html.ActionLink("Cancelar", "Index")
+		</div>
+		}
+</div>
+

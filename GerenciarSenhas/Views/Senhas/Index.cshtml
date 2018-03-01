@@ -1,0 +1,51 @@
+﻿@model IEnumerable<GerenciarSenhas.Models.Senha>
+
+<h5 class="center-align grey-text">Bem vindo(a) @User.Identity.Name </h5>
+@Html.ActionLink("Nova Senha", "Create", "", new { @class = "waves-effect waves-light blue accent-4 btn" })
+@Html.ActionLink("LogOff", "Deslogar", "Conta", "", new { @class = "waves-effect waves-light red accent-4 btn"})
+
+
+
+<p></p>
+
+<div>
+	<table class="striped responsive-table bordered centered">
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.LocalS)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.LoginS)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Senha1)
+			</th>
+			<th></th>
+
+		</tr>
+
+		@foreach (var item in Model)
+		{
+			if (item.IDUsuario == Convert.ToInt32(Session["ID_usuario"]))
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.LocalS)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.LoginS)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Senha1)
+					</td>
+					<td>
+						@Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "waves-effect waves-light green accent-4 btn" })
+						@Html.ActionLink("Deletar", "Delete", new { id = item.ID }, new { @class = "waves-effect waves-light red accent-4 btn" })
+					</td>
+				</tr>
+			}
+		}
+	</table>
+</div>
+
+

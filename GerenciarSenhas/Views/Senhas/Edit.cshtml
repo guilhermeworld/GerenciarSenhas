@@ -1,0 +1,54 @@
+﻿@model GerenciarSenhas.Models.Senha
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+        
+<div class="form-horizontal">
+	<h4 class="center-align blue-text">Editar Senha</h4>
+
+	@Html.ValidationSummary(true, "")
+
+	@Html.HiddenFor(model => model.ID)
+	@Html.HiddenFor(model => model.IDUsuario)
+
+
+	<table class="responsive-table bordered centered">
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.LocalS)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.LoginS)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Senha1)
+			</th>
+		</tr>
+		<tr>
+			<td>
+				@Html.EditorFor(model => model.LocalS, new { htmlAttributes = new { @class = "center-align" } })
+				@Html.ValidationMessageFor(model => model.LocalS, "", new { @class = "red-text center-align" })
+			</td>
+			<td>
+				@Html.EditorFor(model => model.LoginS, new { htmlAttributes = new { @class = "center-align" } })
+				@Html.ValidationMessageFor(model => model.LoginS, "", new { @class = "red-text center-align" })
+			</td>
+			<td>
+				@Html.EditorFor(model => model.Senha1, new { htmlAttributes = new { @class = "center-align" } })
+				@Html.ValidationMessageFor(model => model.Senha1, "", new { @class = "red-text center-align" } )
+			</td>
+		</tr>
+	</table>
+
+	<div class="center-align">
+		<p></p>
+			<button type="submit" class="waves-effect waves-light blue accent-4 btn"> Salvar</button>
+		<p></p>
+			@Html.ActionLink("Cancelar", "Index")
+	</div>
+</div>
+}
+<div>
+    
+</div>
